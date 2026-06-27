@@ -15,12 +15,12 @@ export default function Storefront() {
     const timer = setInterval(() => setCurrentSlide(p => (p + 1) % slides.length), 4000);
     
     // Read dynamic data objects direct from database REST engine
-    fetch('${BACKEND_URL}/api/dishes/')
+    fetch(`${BACKEND_URL}/api/dishes/`)
       .then(res => res.json())
       .then(data => setDishes(data))
       .catch(err => console.error("Database connection drops: ", err));
 
-    fetch('${BACKEND_URL}/api/addons/')
+    fetch(`${BACKEND_URL}/api/addons/`)
       .then(res => res.json())
       .then(data => setAddons(data))
       .catch(err => console.error("Database connection drops: ", err));
