@@ -166,12 +166,12 @@ export default function CheckoutPage() {
 
       {/* Address & COD Checkout Action Form */}
       <form onSubmit={handlePlaceOrder} className="bg-white border p-6 rounded-3xl shadow-xl space-y-4 text-xs font-bold">
-        <h3 className="font-black text-lg text-choc-main border-b pb-2">Delivery Handshake Vector</h3>
+        <h3 className="font-black text-lg text-choc-main border-b pb-2">Please Provide Your Delivery Details</h3>
         
         {/* Step A: Saved Address Dropdown Switch Selector */}
         {savedAddresses.length > 0 && (
           <div>
-            <label className="block text-[10px] uppercase text-gray-400 mb-1">Choose Location Coordinate Vector:</label>
+            <label className="block text-[10px] uppercase text-gray-400 mb-1">Choose Location:</label>
             <select 
               value={selectedAddressId} 
               onChange={handleAddressDropdownChange}
@@ -220,7 +220,7 @@ export default function CheckoutPage() {
         </div>
 
         <div className="p-3 bg-amber-50 rounded-xl font-bold border border-amber-200 text-amber-900 text-[10px]">
-          💵 CASH ON DELIVERY MANDATE TRANSACTION CONDITIONS ACTIVE
+          💵 Currently, We Are Accepting COD Payments Only.
         </div>
 
         <button 
@@ -228,7 +228,7 @@ export default function CheckoutPage() {
           disabled={cartItems.length === 0} 
           className="w-full bg-choc-main hover:bg-choc-shine text-white font-black py-4 rounded-xl text-xs uppercase tracking-wider transition-all disabled:opacity-40"
         >
-          Place COD Order
+          Place Your Order
         </button>
       </form>
     </div>
