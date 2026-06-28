@@ -127,7 +127,7 @@ export default function CheckoutPage() {
           <div className="space-y-3 max-h-72 overflow-y-auto pr-1">
             {cartItems.map((item) => (
               <div key={item.uniqueCartId} className="bg-choc-bg/40 p-4 rounded-xl border border-choc-light/10 space-y-2 relative">
-                <div className="flex justify-between font-bold text-xs pr-12">
+                <div className="flex justify-between font-bold text-xs pr 19">
                   <span className="text-sm font-bold text-choc-main">{item.name}</span>
                   <span className="text-choc-shine">₹{item.price}</span>
                 </div>

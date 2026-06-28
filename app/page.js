@@ -9,7 +9,11 @@ export default function Storefront() {
   const [selectedAddons, setSelectedAddons] = useState({});
   const slides = [
     { title: "Kickstart your day with high protein meals", subtitle: "Six chef-built compositions engineered around performance and theatre." },
-    { title: "Get your protein intake exactly right", subtitle: "Meticulously prepared daily using locally sourced artisanal ingredients." }
+    { title: "Get your protein intake exactly right", subtitle: "Meticulously prepared daily using locally sourced artisanal ingredients." },
+    { title: "Gourmet breakfast, delivered to your doorstep", subtitle: "Experience the luxury of a fine-dining breakfast without leaving your home." },
+    { title: "Strong morning starts with strong nutrition", subtitle: "Our high-protein meals are designed to fuel your day and keep you energized." },
+    { title: "Skip the excuses, Grab the protein", subtitle: "No more skipping breakfast. Our meals are convenient, delicious, and packed with protein to keep you going." },
+    { title: "Why to eat ordinary when you are not ordinary", subtitle: "Elevate your breakfast game with our gourmet high-protein meals that are anything but ordinary." },
   ];
   const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
   const [activeModalDish, setActiveModalDish] = useState(null);
@@ -28,7 +32,7 @@ export default function Storefront() {
       .catch(err => console.error("Database connection dropped: ", err));
 
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   const handleAddonToggle = (dishId, addon) => {
     setSelectedAddons(prev => {
