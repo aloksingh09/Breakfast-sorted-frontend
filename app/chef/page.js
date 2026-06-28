@@ -29,7 +29,7 @@ export default function ChefAdvancedWorkspace() {
     discount_price: '',
     selected_addons_ids: [] // Array of chosen addon IDs for this specific dish mapping
   });
-  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
   const syncWorkspaceMetrics = async (branchId, token) => {
     try {
       const [ordersRes, materialsRes, restRes, addonsRes] = await Promise.all([
@@ -99,7 +99,8 @@ export default function ChefAdvancedWorkspace() {
       nutrition_content: foodForm.nutrition_content,
       price: parseFloat(foodForm.price),
       discount_price: foodForm.discount_price ? parseFloat(foodForm.discount_price) : null,
-      is_available: true
+      is_available: true,
+      addon_ids: foodForm.selected_addons_ids.map(id => parseInt(id)) // Ensure IDs are integers for backend processing
     };
 
     const res = await fetch(`${BACKEND_URL}/api/dishes/`, {

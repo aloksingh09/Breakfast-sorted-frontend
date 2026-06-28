@@ -6,7 +6,7 @@ export default function SecurityPortal() {
   const router = useRouter();
   const [isRegister, setIsRegister] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', identity: '', password: '' });
-  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
 
   const executeAuthCall = async (e) => {
     e.preventDefault();
@@ -44,7 +44,7 @@ export default function SecurityPortal() {
     <div className="min-h-[80vh] flex items-center justify-center p-6">
       <div className="bg-white border p-8 rounded-3xl shadow-2xl max-w-sm w-full space-y-6">
         <h2 className="text-2xl font-black text-choc-main text-center">
-          {isRegister ? "Join Breakfast Sorted" : "Security Gateway Access"}
+          {isRegister ? "Join Breakfast Sorted" : "Welcome Back! Get your Breakfast Sorted"}
         </h2>
         
         <form onSubmit={executeAuthCall} className="space-y-4 text-xs font-semibold">
@@ -61,12 +61,12 @@ export default function SecurityPortal() {
           <input type="password" placeholder="Access Authentication Pin" required value={formData.password} onChange={e=>setFormData({...formData, password:e.target.value})} className="w-full p-3.5 bg-gray-50 border rounded-xl" />
 
           <button type="submit" className="w-full bg-choc-main hover:bg-choc-shine text-white font-bold py-4 rounded-xl text-xs uppercase tracking-wide shadow-md transition-all">
-            {isRegister ? "Commit Registry Object" : "Establish Token Handshake"}
+            {isRegister ? "Commit Registry Object" : "Login"}
           </button>
         </form>
 
         <button onClick={() => setIsRegister(!isRegister)} className="w-full text-center text-xs font-bold text-choc-light hover:underline">
-          {isRegister ? "Already hold an identity card? Login here" : "Need to register dynamic identity? Create here"}
+          {isRegister ? "Already hold an identity card? Login here" : "New user? Register your profile now"}
         </button>
       </div>
     </div>

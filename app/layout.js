@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
             </Link>
             {userRole ? (
               <button onClick={handleLogout} className="text-xs bg-red-900/50 hover:bg-red-900 border border-red-700 px-3 py-1.5 rounded-lg font-bold">
-                Logout ({userRole})
+                Logout
               </button>
             ) : (
               <Link href="/login" className="text-sm font-bold text-[#FAF0E6] hover:text-[#E66A00]">Login</Link>
