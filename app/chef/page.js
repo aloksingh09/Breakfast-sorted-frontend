@@ -322,7 +322,19 @@ export default function ChefAdvancedWorkspace() {
             ) : orders.map(o => (
               <tr key={o.id} className="hover:bg-gray-800/30 transition-colors">
                 <td className="p-4 font-mono text-amber-400 font-bold">#{o.id}</td>
-                <td className="p-4 text-white font-bold text-sm max-w-sm leading-relaxed">{o.dish_name}</td>
+                <td className="p-4 text-white text-sm max-w-sm leading-relaxed">
+                  <div className="flex flex-col gap-0.5">
+                    {/* Dish Name */}
+                    <span className="font-bold">{o.dish_name}</span>
+                    
+                    {/* Delivery Time (Chota aur light color) */}
+                    {o.delivery_time && (
+                      <span className="text-xs text-gray-400 font-normal flex items-center gap-1">
+                        🕒 Slot: {o.delivery_time}
+                      </span>
+                    )}
+                  </div>
+                </td>
                 <td className="p-4 text-gray-400 max-w-xs truncate" title={`${o.flat_no}, ${o.area_street} [${o.pincode}]`}>{`${o.flat_no}, ${o.area_street}`}</td>
                 <td className="p-4 font-black text-emerald-400 text-sm">₹{o.total_price}</td>
                 <td className="p-4 text-center">

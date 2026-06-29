@@ -99,11 +99,24 @@ export default function MyOrdersTracker() {
                     {order.dish_name}
                   </h4>
                   
-                  <div className="flex items-center gap-1.5 text-xs text-gray-400 font-light truncate">
-                    <span>📍</span>
-                    <span className="truncate">
-                      Destination: {`${order.flat_no || ''}, ${order.area_street || ''} [${order.pincode || ''}]`}
-                    </span>
+                  <div className="flex flex-col gap-1">
+                    {/* Destination Address */}
+                    <div className="flex items-center gap-1.5 text-xs text-gray-400 font-light truncate">
+                      <span>📍</span>
+                      <span className="truncate">
+                        Destination: {`${order.flat_no || ''}, ${order.area_street || ''} [${order.pincode || ''}]`}
+                      </span>
+                    </div>
+
+                    {/* Delivery Time */}
+                    {order.delivery_time && (
+                      <div className="flex items-center gap-1.5 text-xs text-gray-400 font-light truncate">
+                        <span>🕒</span>
+                        <span className="truncate">
+                          Delivery Slot: <span className="font-medium text-gray-500">{order.delivery_time}</span>
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
