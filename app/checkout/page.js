@@ -98,7 +98,8 @@ export default function CheckoutPage() {
       total_price: totalBill,
       payment_method: 'COD',
       status: 'Pending',
-      is_new_address: selectedAddressId === 'new'
+      is_new_address: selectedAddressId === 'new',
+      delivery_time: addressForm.deliveryTime || "Not Specified"
     };
 
     const res = await fetch(`${BACKEND_URL}/api/orders/`, {
@@ -217,6 +218,27 @@ export default function CheckoutPage() {
             onChange={e=>setAddressForm({...addressForm, pincode:e.target.value})} 
             className="w-full p-3.5 bg-gray-50 border rounded-xl font-mono tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed" 
           />
+          <div className="w-full">
+            {/* Delivery Time Dropdown */}
+            <select 
+              required
+              value={addressForm.deliveryTime} 
+              disabled={selectedAddressId !== 'new'}
+              onChange={e => setAddressForm({...addressForm, deliveryTime: e.target.value})} 
+              className="w-full p-3.5 bg-gray-50 border rounded-xl font-mono tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed appearance-none"
+            >
+              <option value="" disabled>Select Delivery Time *</option>
+              <option value="6-7 am">6-7 AM</option>
+              <option value="7-8 am">7-8 AM</option>
+              <option value="8-9 am">8-9 AM</option>
+              <option value="9-10 am">9-10 AM</option>
+            </select>
+
+              {/* Tomorrow Morning Note */}
+              <p className="mt-2 text-xs text-green-600 font-medium">
+                Place order now, to get it tomorrow morning!
+              </p>
+            </div>
         </div>
 
         <div className="p-3 bg-amber-50 rounded-xl font-bold border border-amber-200 text-amber-900 text-[10px]">
